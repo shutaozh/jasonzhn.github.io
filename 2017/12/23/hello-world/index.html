@@ -326,6 +326,22 @@
   
 
   
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2017/12/23/hello-world/",
+  owner: 'jasonzhn',
+  repo: 'jasonzhn.github.io',
+  oauth: {
+    client_id: '670974f7b459596ad88b',
+    client_secret: '2e4288d197bae1fd2e0e0cbdc75830138760263e',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
