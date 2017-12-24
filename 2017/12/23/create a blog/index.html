@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jason Zhang的博客</title>
+  <title>Hello blog | Jason Zhang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大数据与云计算">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jason Zhang的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充">
+<meta name="keywords" content="测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello blog">
+<meta property="og:url" content="http://yoursite.com/2017/12/23/create a blog/index.html">
 <meta property="og:site_name" content="Jason Zhang的博客">
-<meta property="og:description" content="大数据与云计算">
+<meta property="og:description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-12-24T10:10:44.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jason Zhang的博客">
-<meta name="twitter:description" content="大数据与云计算">
+<meta name="twitter:title" content="Hello blog">
+<meta name="twitter:description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充">
   
     <link rel="alternative" href="/atom.xml" title="Jason Zhang的博客" type="application/atom+xml">
   
@@ -155,134 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-使用Github Page+Hexo搭建个人博客" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-create a blog" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/24/使用Github Page+Hexo搭建个人博客/">使用Github Page+Hexo搭建个人博客</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/24/使用Github Page+Hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-12-24T10:11:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>测试文章，欢迎关注作者博客: <a href="http://jasonzhn.com" target="_blank" rel="noopener">http://jasonzhn.com</a><br>虽然啥子都没有，以后慢慢补充</p>
-<h2 id="一-安装环境"><a href="#一-安装环境" class="headerlink" title="一. 安装环境"></a>一. 安装环境</h2><ol>
-<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-</ol>
-<ol>
-<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></li>
-</ol>
-<h2 id="二-注册GitHub账户"><a href="#二-注册GitHub账户" class="headerlink" title=" 二. 注册GitHub账户"></a> 二. 注册GitHub账户</h2><p>打开<a href="https://github.com/" target="_blank" rel="noopener">GitHub官网</a>，填写 username 和邮箱进行注册</p>
-<h2 id="三-配置-SSH-keys"><a href="#三-配置-SSH-keys" class="headerlink" title="三. 配置 SSH keys"></a>三. 配置 SSH keys</h2><ol>
-<li><p>检查 SSH keys<br>打开Git Bash，输入</p>
-<p>$ cd ~/.ssh</p>
-<p>如果提示：No such file or directory 则说明你是第一次使用 Git。</p>
-</li>
-<li>生成 SSH keys</li>
-</ol>
-<pre><code>$ ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;
-</code></pre><p> 然后按照系统要求输入密码</p>
-<pre><code>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;
-Enter same passphrase again:&lt;再次输入加密串&gt;
-</code></pre><ol>
-<li><p>添加 SSH Key 到 GitHub<br>在本机设置 SSH Key 之后，需要添加到 GitHub上，以完成 SSH 链接的设置。<br>打开本地 id_rsa.pub 文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub）。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
-<p>登陆 GitHub 系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</p>
-<p>把你本地生成的密钥复制到里面， 点击 add key 就ok了</p>
-</li>
-<li><p>设置用户信息</p>
-<p>$ git config –global user.name “你的用户名”</p>
-<p>$ git config –global user.email  “你的邮箱地址”<br>四. 使用 GitHub Pages 搭建博客</p>
-</li>
-</ol>
-<hr>
-<p>登录GitHub，点击右上角的加号，新建一个仓库new repository，填写好Repository name，Repository name为你的用户名.github.io。<br>在电脑 C 盘新建一个文件夹，在 cmd 中 cd 到该文件夹下，然后执行</p>
-<pre><code>hexo init blog
-</code></pre><p>等待…完成后会出现 blog 文件夹。<br>在 blog 文件夹目录下，打开_config.yml文件，可以修改参数配置博客信息</p>
-<pre><code># Site
-title: Jason Zhang的博客
-subtitle: 沉默寡言
-description: 大数据与云计算
-author: Jason Zhang
-language: zh-CN
-timezone: Asia/Shanghai
-</code></pre><p>以及部署服务器配置信息</p>
-<pre><code>deploy:
-  type: git
-  repo: https://github.com/jasonzhn/jasonzhn.github.io
-  branch: master
-</code></pre><p>在 blog 文件夹目录下，在 cmd 中输入</p>
-<pre><code>hexo clean
-hexo g -d
-</code></pre><p>完成之后就可以登录我们部署在Github Pages服务器上的博客了。对应的网址为 <a href="http://username.github.io(例如：http://jasonzhn.github.io)。" target="_blank" rel="noopener">http://username.github.io(例如：http://jasonzhn.github.io)。</a></p>
-<h2 id="五-修改博客主题"><a href="#五-修改博客主题" class="headerlink" title="五. 修改博客主题"></a>五. 修改博客主题</h2><p>博客基本已经搭建完成，以下可以自己选择合适的 hexo 主题，美化自己的博客。<br>在 blog 文件夹目录中，右击选择 Git Bash ，输入</p>
-<pre><code>git clone https://github.com/iissnan/hexo-theme-next
-</code></pre><p>此处地址替换成你需要使用的主题的地址<br>等待…下载完成<br>打开 blog 文件夹下的配置文件 _config.yml，修改主题参数为：theme: hexo-theme-next<br>同样执行以下命令</p>
-<pre><code>hexo clean
-hexo g -d
-</code></pre><p>将 blog 网站部署到 GitHub 上</p>
-<h2 id="六-在博客写文章"><a href="#六-在博客写文章" class="headerlink" title="六. 在博客写文章"></a>六. 在博客写文章</h2><p>执行 $ hexo n “文章标题” ，或者直接在 \Hexo\source_posts 中新建一个 md 文件，写好之后同样用步骤五中的命令部署到 GitHub 上。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/24/使用Github Page+Hexo搭建个人博客/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-create a blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/23/create a blog/">Hello blog</a>
+    <h1 class="article-title" itemprop="name">
+      Hello blog
     </h1>
   
 
@@ -300,79 +182,26 @@ hexo g -d
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">测试</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/23/create a blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Hello-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/23/Hello-blog/">Hello blog</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/23/Hello-blog/" class="archive-article-date">
-  	<time datetime="2017-12-23T10:44:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>测试文章，欢迎关注作者博客: <a href="https://jasonzhn.com" target="_blank" rel="noopener">https://jasonzhn.com</a><br>虽然啥子都没有，以后慢慢补充</p>
-
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -392,16 +221,84 @@ hexo g -d
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/23/Hello-blog/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/23/create a blog/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/12/24/使用Github Page+Hexo搭建个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用Github Page+Hexo搭建个人博客
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/23/Hello-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello blog</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -423,77 +320,31 @@ hexo g -d
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+ 
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/23/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        
-        <a href="/2017/12/23/hello-world/" class="archive-article-date">
-  	<time datetime="2017-12-23T10:30:06.985Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/23/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+  
 
   
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://yoursite.com/2017/12/23/create a blog/",
+  owner: 'jasonzhn',
+  repo: 'jasonzhn.github.io',
+  oauth: {
+    client_id: '670974f7b459596ad88b',
+    client_secret: '2e4288d197bae1fd2e0e0cbdc75830138760263e',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
   
 
 
@@ -516,8 +367,8 @@ hexo g -d
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
