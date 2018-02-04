@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>使用Github Page+Hexo搭建个人博客 | Jason Zhang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充 一. 安装环境 Git   Node.js   二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys 检查 SSH keys打开Git Bash，输入 $ cd ~/.ssh 如果提示：No such file or directory">
+  <meta name="description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充 一. 安装环境 Git Node.js   二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys 检查 SSH keys 打开Git Bash，输入 $ cd ~/.ssh 如果提示：No such file or directory 则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Github Page+Hexo搭建个人博客">
 <meta property="og:url" content="http://yoursite.com/2017/12/24/使用Github Page+Hexo搭建个人博客/index.html">
 <meta property="og:site_name" content="Jason Zhang的博客">
-<meta property="og:description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充 一. 安装环境 Git   Node.js   二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys 检查 SSH keys打开Git Bash，输入 $ cd ~/.ssh 如果提示：No such file or directory">
+<meta property="og:description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充 一. 安装环境 Git Node.js   二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys 检查 SSH keys 打开Git Bash，输入 $ cd ~/.ssh 如果提示：No such file or directory 则">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-24T13:04:24.618Z">
+<meta property="og:updated_time" content="2018-01-04T09:02:25.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Github Page+Hexo搭建个人博客">
-<meta name="twitter:description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充 一. 安装环境 Git   Node.js   二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys 检查 SSH keys打开Git Bash，输入 $ cd ~/.ssh 如果提示：No such file or directory">
+<meta name="twitter:description" content="测试文章，欢迎关注作者博客: http://jasonzhn.com虽然啥子都没有，以后慢慢补充 一. 安装环境 Git Node.js   二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys 检查 SSH keys 打开Git Bash，输入 $ cd ~/.ssh 如果提示：No such file or directory 则">
   
     <link rel="alternative" href="/atom.xml" title="Jason Zhang的博客" type="application/atom+xml">
   
@@ -179,27 +179,29 @@
         <p>测试文章，欢迎关注作者博客: <a href="http://jasonzhn.com" target="_blank" rel="noopener">http://jasonzhn.com</a><br>虽然啥子都没有，以后慢慢补充</p>
 <h2 id="一-安装环境"><a href="#一-安装环境" class="headerlink" title="一. 安装环境"></a>一. 安装环境</h2><ol>
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-</ol>
-<ol>
 <li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></li>
 </ol>
 <h2 id="二-注册GitHub账户"><a href="#二-注册GitHub账户" class="headerlink" title=" 二. 注册GitHub账户"></a> 二. 注册GitHub账户</h2><p>打开<a href="https://github.com/" target="_blank" rel="noopener">GitHub官网</a>，填写 username 和邮箱进行注册</p>
 <h2 id="三-配置-SSH-keys"><a href="#三-配置-SSH-keys" class="headerlink" title="三. 配置 SSH keys"></a>三. 配置 SSH keys</h2><ol>
-<li><p>检查 SSH keys<br>打开Git Bash，输入</p>
+<li><p>检查 SSH keys<br> 打开Git Bash，输入</p>
 <p>$ cd ~/.ssh</p>
 <p>如果提示：No such file or directory 则说明你是第一次使用 Git。</p>
-</li>
+<ol>
 <li>生成 SSH keys</li>
+</ol>
+</li>
 </ol>
 <pre><code>$ ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;
 </code></pre><p> 然后按照系统要求输入密码</p>
 <pre><code>Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;
 Enter same passphrase again:&lt;再次输入加密串&gt;
 </code></pre><ol>
-<li><p>添加 SSH Key 到 GitHub<br>在本机设置 SSH Key 之后，需要添加到 GitHub上，以完成 SSH 链接的设置。<br>打开本地 id_rsa.pub 文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub）。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
+<li><p>添加 SSH Key 到 GitHub<br> 在本机设置 SSH Key 之后，需要添加到 GitHub上，以完成 SSH 链接的设置。<br>打开本地 id_rsa.pub 文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub）。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
 <p>登陆 GitHub 系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</p>
 <p>把你本地生成的密钥复制到里面， 点击 add key 就ok了</p>
 </li>
+</ol>
+<ol>
 <li><p>设置用户信息</p>
 <p>$ git config –global user.name “你的用户名”</p>
 <p>$ git config –global user.email  “你的邮箱地址”<br>四. 使用 GitHub Pages 搭建博客</p>
@@ -326,7 +328,7 @@ hexo g -d
 <nav id="article-nav">
   
   
-    <a href="/2017/12/23/create a blog/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/23/Hello-blog/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Hello blog</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -389,7 +391,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Jason Zhang
+    		&copy; 2018 Jason Zhang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
