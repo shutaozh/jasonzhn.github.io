@@ -160,46 +160,47 @@
     <article id="post-Hadoop扩展磁盘空间" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/Hadoop扩展磁盘空间/">Hadoop扩展磁盘空间</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/03/Hadoop扩展磁盘空间/" class="archive-article-date">
+  	<time datetime="2018-08-03T06:43:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Hadoop扩展磁盘空间"><a href="#Hadoop扩展磁盘空间" class="headerlink" title="Hadoop扩展磁盘空间"></a>Hadoop扩展磁盘空间</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hadoop平台运行过程中，随着大量数据的存储，可能会出现磁盘空间不足“No space left on device”，需要添加新的磁盘。例如使用df-h命令查看磁盘空间使用情况，发现已使用空间大小75%。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Hadoop平台运行过程中，随着大量数据的存储，可能会出现磁盘空间不足“No space left on device”，需要添加新的磁盘。例如使用df-h命令查看磁盘空间使用情况，发现已使用空间大小75%。</p>
 <p><img src="https://raw.githubusercontent.com/jasonzhn/pictureResource/master/b2-1.png" alt="image"></p>
-<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><ol>
-<li>查看磁盘分区</li>
-</ol>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>1.查看磁盘分区</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/jasonzhn/pictureResource/master/b2-2.png" alt="image"></p>
 <p>可以发现新的磁盘sdb未分区</p>
-<ol>
-<li>创建分区</li>
-</ol>
+<p>2.创建分区</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br></pre></td></tr></table></figure>
 <p>然后输入m，可以看到对应命令作用的提示。</p>
 <p>依次按照给出的提示输入n添加新分区，p创建主分区，中间过程可以默认回车</p>
 <p>最后输入w，保存修改。</p>
-<ol>
-<li>重启计算机</li>
-</ol>
+<p>3.重启计算机</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<ol>
-<li>格式化分区</li>
-</ol>
+<p>4.格式化分区</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs /dev/sdb1</span><br></pre></td></tr></table></figure>
-<ol>
-<li>挂载分区</li>
-</ol>
+<p>5.挂载分区</p>
 <p>hdp4为DataNode节点，其数据块存放在/hadoop/hdfs/data目录下。在/hadoop/hdfs目录下新建一个文件夹datav1，并将data中的文件拷贝到datav1中。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /hadoop/hdfs/datav1</span><br></pre></td></tr></table></figure>
 <p>注意不能直接挂载在根目录，虽然根目录的分区名称变成了/dev/sdb1，但实际可用空间没变。</p>
-<ol>
-<li>设置开机启动挂载</li>
-</ol>
+<p>6.设置开机启动挂载</p>
 <p>在/etc/fstab文件加入UUID=××××××  /hadoop/hdfs/datav1  xfs  defaults  0 0</p>
 <p><img src="https://raw.githubusercontent.com/jasonzhn/pictureResource/master/b2-4.png" alt="image"></p>
 <p>UUID可以通过blkid查看，对应/dev/sdb1的UUID。UUID不能填写错误，否则重启之后无法连接。</p>
-<ol>
-<li>完成之后可以看到DataNode节点的空间从原来的20多个G变成261.5G</li>
-</ol>
+<p>7.完成之后可以看到DataNode节点的空间从原来的20多个G变成265.5G</p>
 <p><img src="https://github.com/jasonzhn/pictureResource/blob/master/b2-3.png?raw=true" alt="image"></p>
 
       
@@ -209,6 +210,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -440,6 +452,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -489,7 +505,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">毕业于江南大学&lt;br&gt;&lt;br&gt;985大数据与自然语言处理方向准硕&lt;br&gt;</div>
   	  	
     	</section>
     
