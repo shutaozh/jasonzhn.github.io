@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>使用Github Page + Hexo搭建个人博客 | Jason Zhang的博客</title>
+  <title>HDFS数据块丢失 | Jason Zhang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一. 安装环境 Git Node.js  二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys1.检查 SSH keys 打开Git Bash，输入 1$ cd ~/.ssh 如果提示：No such file or directory，则说明你是第一次使用 Git。 2.生成 SSH keys 1$ ssh-keygen -t rs">
+  <meta name="description" content="问题在Ambari界面中查看到HDFS服务出现missing blocks错误 方案移除丢失的数据块 1hadoop fsck -delete">
+<meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Github Page + Hexo搭建个人博客">
-<meta property="og:url" content="http://yoursite.com/2017/12/24/使用Github Page+Hexo搭建个人博客/index.html">
+<meta property="og:title" content="HDFS数据块丢失">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/HDFS数据块丢失/index.html">
 <meta property="og:site_name" content="Jason Zhang的博客">
-<meta property="og:description" content="一. 安装环境 Git Node.js  二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys1.检查 SSH keys 打开Git Bash，输入 1$ cd ~/.ssh 如果提示：No such file or directory，则说明你是第一次使用 Git。 2.生成 SSH keys 1$ ssh-keygen -t rs">
+<meta property="og:description" content="问题在Ambari界面中查看到HDFS服务出现missing blocks错误 方案移除丢失的数据块 1hadoop fsck -delete">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-03T07:02:55.605Z">
+<meta property="og:updated_time" content="2018-08-03T08:42:02.502Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Github Page + Hexo搭建个人博客">
-<meta name="twitter:description" content="一. 安装环境 Git Node.js  二. 注册GitHub账户打开GitHub官网，填写 username 和邮箱进行注册 三. 配置 SSH keys1.检查 SSH keys 打开Git Bash，输入 1$ cd ~/.ssh 如果提示：No such file or directory，则说明你是第一次使用 Git。 2.生成 SSH keys 1$ ssh-keygen -t rs">
+<meta name="twitter:title" content="HDFS数据块丢失">
+<meta name="twitter:description" content="问题在Ambari界面中查看到HDFS服务出现missing blocks错误 方案移除丢失的数据块 1hadoop fsck -delete">
   
     <link rel="alternative" href="/atom.xml" title="Jason Zhang的博客" type="application/atom+xml">
   
@@ -169,74 +170,29 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用Github Page+Hexo搭建个人博客" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-HDFS数据块丢失" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      使用Github Page + Hexo搭建个人博客
+      HDFS数据块丢失
     </h1>
   
 
         
-        <a href="/2017/12/24/使用Github Page+Hexo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-12-24T10:11:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-24</time>
+        <a href="/2018/08/03/HDFS数据块丢失/" class="archive-article-date">
+  	<time datetime="2018-08-03T08:15:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一-安装环境"><a href="#一-安装环境" class="headerlink" title="一. 安装环境"></a>一. 安装环境</h2><ol>
-<li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
-<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a></li>
-</ol>
-<h2 id="二-注册GitHub账户"><a href="#二-注册GitHub账户" class="headerlink" title="二. 注册GitHub账户"></a>二. 注册GitHub账户</h2><p>打开<a href="https://github.com/" target="_blank" rel="noopener">GitHub官网</a>，填写 username 和邮箱进行注册</p>
-<h2 id="三-配置-SSH-keys"><a href="#三-配置-SSH-keys" class="headerlink" title="三. 配置 SSH keys"></a>三. 配置 SSH keys</h2><p>1.检查 SSH keys</p>
-<p>打开Git Bash，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/.ssh</span><br></pre></td></tr></table></figure>
-<p>如果提示：No such file or directory，则说明你是第一次使用 Git。</p>
-<p>2.生成 SSH keys</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;你的邮箱地址&quot;</span><br></pre></td></tr></table></figure>
-<p>然后按照系统要求输入密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure>
-<p>3.添加 SSH Key 到 GitHub</p>
-<p>在本机设置 SSH Key 之后，需要添加到 GitHub上，以完成 SSH 链接的设置。<br>打开本地 id_rsa.pub 文件（ 参考地址 C:\Documents and Settings\Administrator.ssh\id_rsa.pub）。此文件里面内容为刚才生成的密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。</p>
-<p>登陆 GitHub 系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys</p>
-<p>把你本地生成的密钥复制到里面， 点击 add key 就ok了</p>
-<p>4.设置用户信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;你的用户名&quot;</span><br><span class="line">$ git config --global user.email  &quot;你的邮箱地址&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="四-使用-GitHub-Pages-搭建博客"><a href="#四-使用-GitHub-Pages-搭建博客" class="headerlink" title="四. 使用 GitHub Pages 搭建博客"></a>四. 使用 GitHub Pages 搭建博客</h2><p>登录GitHub，点击右上角的加号，新建一个仓库new repository，填写好Repository name，Repository name为你的用户名.github.io。</p>
-<p>在电脑 C 盘新建一个文件夹，在 cmd 中 cd 到该文件夹下，然后执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
-<p>等待…完成后会出现 blog 文件夹。<br>在 blog 文件夹目录下，打开_config.yml文件，可以修改参数配置博客信息</p>
-<pre><code># Site
-title: Jason Zhang的博客
-subtitle: 沉默寡言
-description: 大数据与云计算
-author: Jason Zhang
-language: zh-CN
-timezone: Asia/Shanghai
-</code></pre><p>以及部署服务器配置信息</p>
-<pre><code>deploy:
-  type: git
-  repo: https://github.com/jasonzhn/jasonzhn.github.io
-  branch: master
-</code></pre><p>在 blog 文件夹目录下，在 cmd 中输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<p>完成之后就可以登录我们部署在Github Pages服务器上的博客了。对应的网址为 <a href="http://username.github.io(例如：http://jasonzhn.github.io)。" target="_blank" rel="noopener">http://username.github.io(例如：http://jasonzhn.github.io)。</a></p>
-<h2 id="五-修改博客主题"><a href="#五-修改博客主题" class="headerlink" title="五. 修改博客主题"></a>五. 修改博客主题</h2><p>博客基本已经搭建完成，以下可以自己选择合适的 hexo 主题，美化自己的博客。<br>在 blog 文件夹目录中，右击选择 Git Bash ，输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next</span><br></pre></td></tr></table></figure>
-<p>此处地址替换成你需要使用的主题的地址</p>
-<p>等待…下载完成</p>
-<p>打开 blog 文件夹下的配置文件 _config.yml，修改主题参数为：</p>
-<pre><code>theme: hexo-theme-next
-</code></pre><p>同样执行以下命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
-<p>将 blog 网站部署到 GitHub 上</p>
-<h2 id="六-在博客写文章"><a href="#六-在博客写文章" class="headerlink" title="六. 在博客写文章"></a>六. 在博客写文章</h2><p>执行 $ hexo n “文章标题” ，或者直接在 \Hexo\source_posts 中新建一个 md 文件，写好之后同样用步骤五中的命令部署到 GitHub 上。</p>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在Ambari界面中查看到HDFS服务出现missing blocks错误</p>
+<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>移除丢失的数据块</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop fsck -delete</span><br></pre></td></tr></table></figure>
 
       
 
@@ -266,6 +222,17 @@ timezone: Asia/Shanghai
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -316,7 +283,7 @@ timezone: Asia/Shanghai
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/12/24/使用Github Page+Hexo搭建个人博客/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/HDFS数据块丢失/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,15 +297,11 @@ timezone: Asia/Shanghai
   
 <nav id="article-nav">
   
-    <a href="/2018/08/03/Hadoop扩展磁盘空间/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Hadoop扩展磁盘空间
-        
-      </div>
-    </a>
   
+    <a href="/2018/08/03/无法启动yarn/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">无法启动yarn</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -363,7 +326,7 @@ timezone: Asia/Shanghai
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-安装环境"><span class="toc-number">1.</span> <span class="toc-text">一. 安装环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-注册GitHub账户"><span class="toc-number">2.</span> <span class="toc-text">二. 注册GitHub账户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三-配置-SSH-keys"><span class="toc-number">3.</span> <span class="toc-text">三. 配置 SSH keys</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四-使用-GitHub-Pages-搭建博客"><span class="toc-number">4.</span> <span class="toc-text">四. 使用 GitHub Pages 搭建博客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五-修改博客主题"><span class="toc-number">5.</span> <span class="toc-text">五. 修改博客主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六-在博客写文章"><span class="toc-number">6.</span> <span class="toc-text">六. 在博客写文章</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#问题"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方案"><span class="toc-number">2.</span> <span class="toc-text">方案</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -391,7 +354,7 @@ timezone: Asia/Shanghai
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://yoursite.com/2017/12/24/使用Github Page+Hexo搭建个人博客/",
+  id: "http://yoursite.com/2018/08/03/HDFS数据块丢失/",
   owner: 'jasonzhn',
   repo: 'jasonzhn.github.io',
   oauth: {

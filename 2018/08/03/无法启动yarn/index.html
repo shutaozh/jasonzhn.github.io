@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>无法启动yarn | Jason Zhang的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述Hadoop集群在启动yarn时无法启动，错误日志如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344452018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-">
+  <meta name="description" content="问题描述Hadoop集群在启动yarn时无法启动，错误日志如下： 2018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &amp;apos;/usr/bin/hdp-select status hadoop-yarn-timelinese">
 <meta name="keywords" content="Hadoop、yarn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无法启动yarn">
 <meta property="og:url" content="http://yoursite.com/2018/08/03/无法启动yarn/index.html">
 <meta property="og:site_name" content="Jason Zhang的博客">
-<meta property="og:description" content="问题描述Hadoop集群在启动yarn时无法启动，错误日志如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344452018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-">
+<meta property="og:description" content="问题描述Hadoop集群在启动yarn时无法启动，错误日志如下： 2018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &amp;apos;/usr/bin/hdp-select status hadoop-yarn-timelinese">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-03T08:00:00.628Z">
+<meta property="og:updated_time" content="2018-08-03T08:07:29.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无法启动yarn">
-<meta name="twitter:description" content="问题描述Hadoop集群在启动yarn时无法启动，错误日志如下： 1234567891011121314151617181920212223242526272829303132333435363738394041424344452018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-">
+<meta name="twitter:description" content="问题描述Hadoop集群在启动yarn时无法启动，错误日志如下： 2018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &amp;apos;/usr/bin/hdp-select status hadoop-yarn-timelinese">
   
     <link rel="alternative" href="/atom.xml" title="Jason Zhang的博客" type="application/atom+xml">
   
@@ -191,8 +191,52 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>Hadoop集群在启动yarn时无法启动，错误日志如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">2018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &apos;/usr/bin/hdp-select status hadoop-yarn-timelineserver &gt; /tmp/tmpLJrzwt&apos;. Return Code: 1, Output: .</span><br><span class="line">2018-07-26 09:13:38,779 - The &apos;hadoop-yarn-timelineserver&apos; component did not advertise a version. This may indicate a problem with the component packaging. However, the stack-select tool was able to report a single version installed (2.6.4.0-91). This is the version that will be reported.</span><br><span class="line">2018-07-26 09:13:40,662 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &apos;/usr/bin/hdp-select status hadoop-yarn-timelineserver &gt; /tmp/tmpG74AWl&apos;. Return Code: 1, Output: .</span><br><span class="line">2018-07-26 09:13:40,736 - The &apos;hadoop-yarn-timelineserver&apos; component did not advertise a version. This may indicate a problem with the component packaging. However, the stack-select tool was able to report a single version installed (2.6.4.0-91). This is the version that will be reported.</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/application_timeline_server.py&quot;, line 89, in &lt;module&gt;</span><br><span class="line">    ApplicationTimelineServer().execute()</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/script/script.py&quot;, line 375, in execute</span><br><span class="line">    method(env)</span><br><span class="line">  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/application_timeline_server.py&quot;, line 43, in start</span><br><span class="line">    self.configure(env) # FOR SECURITY</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/script/script.py&quot;, line 120, in locking_configure</span><br><span class="line">    original_configure(obj, *args, **kw)</span><br><span class="line">  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/application_timeline_server.py&quot;, line 54, in configure</span><br><span class="line">    yarn(name=&apos;apptimelineserver&apos;)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/ambari_commons/os_family_impl.py&quot;, line 89, in thunk</span><br><span class="line">    return fn(*args, **kwargs)</span><br><span class="line">  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/yarn.py&quot;, line 359, in yarn</span><br><span class="line">    mode=0755</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/core/base.py&quot;, line 166, in __init__</span><br><span class="line">    self.env.run()</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/core/environment.py&quot;, line 160, in run</span><br><span class="line">    self.run_action(resource, action)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/core/environment.py&quot;, line 124, in run_action</span><br><span class="line">    provider_action()</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 606, in action_create_on_execute</span><br><span class="line">    self.action_delayed(&quot;create&quot;)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 603, in action_delayed</span><br><span class="line">    self.get_hdfs_resource_executor().action_delayed(action_name, self)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 339, in action_delayed</span><br><span class="line">    self._set_mode(self.target_status)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 510, in _set_mode</span><br><span class="line">    self.util.run_command(self.main_resource.resource.target, &apos;SETPERMISSION&apos;, method=&apos;PUT&apos;, permission=self.mode, assertable_result=False)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 177, in run_command</span><br><span class="line">    return self._run_command(*args, **kwargs)</span><br><span class="line">  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 250, in _run_command</span><br><span class="line">    raise WebHDFSCallException(err_msg, result_dict)</span><br><span class="line">resource_management.libraries.providers.hdfs_resource.WebHDFSCallException: Execution of &apos;curl -sS -L -w &apos;%&#123;http_code&#125;&apos; -X PUT &apos;http://hdp2:50070/webhdfs/v1/ats/done?op=SETPERMISSION&amp;user.name=hdfs&amp;permission=755&apos;&apos; returned status_code=403. </span><br><span class="line">&#123;</span><br><span class="line">  &quot;RemoteException&quot;: &#123;</span><br><span class="line">    &quot;exception&quot;: &quot;SafeModeException&quot;, </span><br><span class="line">    &quot;javaClassName&quot;: &quot;org.apache.hadoop.hdfs.server.namenode.SafeModeException&quot;, </span><br><span class="line">    &quot;message&quot;: &quot;Cannot set permission for /ats/done. Name node is in safe mode.\nThe reported blocks 29 needs additional 10 blocks to reach the threshold 1.0000 of total blocks 38.\nThe number of live datanodes 1 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached.&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>HDFS block丢失过多会进入安全模式，导致yarn服务无法启动，需要退出安全模式</p>
+<pre><code>2018-07-26 09:13:38,708 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &apos;/usr/bin/hdp-select status hadoop-yarn-timelineserver &gt; /tmp/tmpLJrzwt&apos;. Return Code: 1, Output: .
+2018-07-26 09:13:38,779 - The &apos;hadoop-yarn-timelineserver&apos; component did not advertise a version. This may indicate a problem with the component packaging. However, the stack-select tool was able to report a single version installed (2.6.4.0-91). This is the version that will be reported.
+2018-07-26 09:13:40,662 - Could not determine stack version for component hadoop-yarn-timelineserver by calling &apos;/usr/bin/hdp-select status hadoop-yarn-timelineserver &gt; /tmp/tmpG74AWl&apos;. Return Code: 1, Output: .
+2018-07-26 09:13:40,736 - The &apos;hadoop-yarn-timelineserver&apos; component did not advertise a version. This may indicate a problem with the component packaging. However, the stack-select tool was able to report a single version installed (2.6.4.0-91). This is the version that will be reported.
+Traceback (most recent call last):
+  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/application_timeline_server.py&quot;, line 89, in &lt;module&gt;
+ApplicationTimelineServer().execute()
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/script/script.py&quot;, line 375, in execute
+method(env)
+  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/application_timeline_server.py&quot;, line 43, in start
+    self.configure(env) # FOR SECURITY
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/script/script.py&quot;, line 120, in locking_configure
+    original_configure(obj, *args, **kw)
+  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/application_timeline_server.py&quot;, line 54, in configure
+    yarn(name=&apos;apptimelineserver&apos;)
+  File &quot;/usr/lib/python2.6/site-packages/ambari_commons/os_family_impl.py&quot;, line 89, in thunk
+return fn(*args, **kwargs)
+  File &quot;/var/lib/ambari-agent/cache/common-services/YARN/2.1.0.2.0/package/scripts/yarn.py&quot;, line 359, in yarn
+    mode=0755
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/core/base.py&quot;, line 166, in __init__
+    self.env.run()
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/core/environment.py&quot;, line 160, in run
+    self.run_action(resource, action)
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/core/environment.py&quot;, line 124, in run_action
+    provider_action()
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 606, in action_create_on_execute
+    self.action_delayed(&quot;create&quot;)
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 603, in action_delayed
+    self.get_hdfs_resource_executor().action_delayed(action_name, self)
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 339, in action_delayed
+    self._set_mode(self.target_status)
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 510, in _set_mode
+self.util.run_command(self.main_resource.resource.target, &apos;SETPERMISSION&apos;, method=&apos;PUT&apos;, permission=self.mode,      assertable_result=False)
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 177, in run_command
+    return self._run_command(*args, **kwargs)
+  File &quot;/usr/lib/python2.6/site-packages/resource_management/libraries/providers/hdfs_resource.py&quot;, line 250, in _run_command
+    raise WebHDFSCallException(err_msg, result_dict)
+resource_management.libraries.providers.hdfs_resource.WebHDFSCallException: Execution of &apos;curl -sS -L -w &apos;%{http_code}&apos; -X PUT &apos;http://hdp2:50070/webhdfs/v1/ats/done?op=SETPERMISSION&amp;user.name=hdfs&amp;permission=755&apos;&apos; returned status_code=403. 
+{
+  &quot;RemoteException&quot;: {
+    &quot;exception&quot;: &quot;SafeModeException&quot;, 
+    &quot;javaClassName&quot;: &quot;org.apache.hadoop.hdfs.server.namenode.SafeModeException&quot;, 
+    &quot;message&quot;: &quot;Cannot set permission for /ats/done. Name node is in safe mode.\nThe reported blocks 29 needs additional 10 blocks to reach the threshold 1.0000 of total blocks 38.\nThe number of live datanodes 1 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached.&quot;
+  }
+}
+</code></pre><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>HDFS block丢失过多会进入安全模式，导致yarn服务无法启动，需要退出安全模式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su hdfs</span><br><span class="line">hdfs dfsadmin -safemode leave</span><br></pre></td></tr></table></figure>
 
       
@@ -297,6 +341,15 @@ ga('send', 'pageview');
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/08/03/HDFS数据块丢失/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          HDFS数据块丢失
+        
+      </div>
+    </a>
   
   
     <a href="/2018/08/03/Hadoop扩展磁盘空间/" id="article-nav-older" class="article-nav-link-wrap">
@@ -454,11 +507,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop、yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop、yarn</a>
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
               </li>
             
             <div class="clearfix"></div>
