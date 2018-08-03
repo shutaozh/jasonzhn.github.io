@@ -170,6 +170,89 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-HBase命令遇到的一些问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/HBase命令遇到的一些问题/">HBase命令遇到的一些问题</a>
+    </h1>
+  
+
+        
+        <a href="/2018/08/03/HBase命令遇到的一些问题/" class="archive-article-date">
+  	<time datetime="2018-08-03T09:17:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一-Master-is-initializing"><a href="#一-Master-is-initializing" class="headerlink" title="一. Master is initializing"></a>一. Master is initializing</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>在HBase Shell命令行中执行status和list命令时出现ERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</p>
+<p><img src="https://raw.githubusercontent.com/jasonzhn/pictureResource/master/b4-1.png" alt="image"></p>
+<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs dfs -rm -r /apps/hbase/data/WALs/</span><br><span class="line">zookeeper-client rmr /hbase-unsecure/rs</span><br></pre></td></tr></table></figure>
+<p>重启HBase</p>
+<h2 id="二-Table-Namespace-Manager-not-fully-initialized"><a href="#二-Table-Namespace-Manager-not-fully-initialized" class="headerlink" title="二. Table Namespace Manager not fully initialized"></a>二. Table Namespace Manager not fully initialized</h2><h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>以上的问题解决之后，在HBase Shell命令行中执行create命令时出现ERROR: java.io.IOException: Table Namespace Manager not fully initialized, try again later</p>
+<p><img src="https://github.com/jasonzhn/pictureResource/blob/master/b4-2.png?raw=true" alt="image"></p>
+<h3 id="方案-1"><a href="#方案-1" class="headerlink" title="方案"></a>方案</h3><p>从Zookeeper和HDFS清除HBase相关数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hbase clean --All</span><br></pre></td></tr></table></figure>
+<p>出现ZNode(s) [hdp4,16020,1532670096687] of regionservers are not expired. Exiting without cleaning hbase data.错误</p>
+<p>需要停止HBase Master和RegionServer服务，再重新执行hbase clean –All</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/08/03/HBase命令遇到的一些问题/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-HDFS数据块丢失" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -327,7 +410,7 @@ resource_management.libraries.providers.hdfs_resource.WebHDFSCallException: Exec
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop、yarn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
         		</li>
       		
 		</ul>
@@ -662,10 +745,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Hadoop、yarn</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
